@@ -12,8 +12,6 @@
         android:layout_height="54dp"
         android:onClick="DownloadPartition"
         android:text="Download your partition with unique key"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         tools:layout_editor_absoluteY="286dp"
 
         android:layout_alignParentBottom="true"
@@ -26,8 +24,6 @@
         android:layout_height="54dp"
         android:onClick="InitiateDownload"
         android:text="Initiate Download"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         tools:layout_editor_absoluteY="123dp"
         android:layout_above="@+id/button2"
         android:layout_alignStart="@+id/button2"
