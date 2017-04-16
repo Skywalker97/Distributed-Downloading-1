@@ -13,20 +13,37 @@
         android:id="@+id/link"
         android:hint="Enter the url"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+     android:layout_alignParentTop="true"
+     android:layout_alignParentStart="true"
+     android:layout_marginTop="90dp" />
     <EditText
         android:id="@+id/key"
-        android:layout_below="@id/link"
         android:hint="Enter the unique key"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/link"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp" />
 
     <Button
         android:id="@+id/download"
         android:text="Download"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="154dp"
         android:layout_below="@+id/key"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/activity_horizontal_margin" />
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/key"
+        android:layout_marginTop="62dp"
+        android:ems="10"
+        android:hint="Enter file name"
+        android:inputType="textPersonName" />
 </RelativeLayout>

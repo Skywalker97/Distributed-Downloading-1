@@ -10,11 +10,15 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import avinash.distributeddownloadingsystem.Database.Download_Info;
+import avinash.distributeddownloadingsystem.Database.SQLiteHelper;
+
 public class DownloadPart extends AppCompatActivity {
 
-    private EditText url,key;
+    private EditText url,key,file;
     private Button download;
     Context context;
+    SQLiteHelper sq;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +27,9 @@ public class DownloadPart extends AppCompatActivity {
         context=this;
         url = (EditText) findViewById(R.id.link);
         key = (EditText) findViewById(R.id.key);
+        file = (EditText) findViewById(R.id.file);
         download = (Button) findViewById(R.id.download);
+        sq = new SQLiteHelper(this);
 
 
         download.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +46,9 @@ public class DownloadPart extends AppCompatActivity {
                         //Communicate with the API here.
 
                     }catch (Exception e){e.printStackTrace();}
+                    Download_Info DI = new Download_Info(file.getText().toString(), url.getText().toString(), 0, key.getText().toString());
+                    sq.addRow(DI);
+
                 }
                 else
                 {

@@ -16,9 +16,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+
         <activity android:name=".DownloadPart"></activity>
         <activity android:name=".InitiateDownload"></activity>
+        <activity android:name=".ManageDownloads"></activity>
+        <activity android:name=".Download_Details"></activity>
 
     </application>
 

@@ -23,4 +23,8 @@ public void DownloadPartition(View view)
     Intent i = new Intent(this, DownloadPart.class);
     startActivity(i);
 }
-}
+    public void ManageDownloads(View view)
+    {
+        Intent i = new Intent(this,ManageDownloads.class);
+        startActivity(i);
+    }}

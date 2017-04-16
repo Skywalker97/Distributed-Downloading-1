@@ -15,12 +15,16 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONObject;
 
+import avinash.distributeddownloadingsystem.Database.Download_Info;
+import avinash.distributeddownloadingsystem.Database.SQLiteHelper;
+
 public class InitiateDownload extends Activity {
 
-    private EditText url,numOfRequests;
+    private EditText url,numOfRequests, file;
     private Button download;
     Context context;
     ProgressDialog progressDialog;
+    SQLiteHelper sq;
 
     private String requestUrl = "localhost:3000/download";
     @Override
@@ -31,7 +35,9 @@ public class InitiateDownload extends Activity {
         url = (EditText) findViewById(R.id.link);
         numOfRequests = (EditText) findViewById(R.id.key);
         download = (Button) findViewById(R.id.download);
+        file = (EditText) findViewById(R.id.file);
         progressDialog = new ProgressDialog(context);
+
 
         download.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +50,8 @@ public class InitiateDownload extends Activity {
                     progressDialog.setCancelable(false);
                     makeRequest(url.getText().toString(),Integer.parseInt(numOfRequests.getText().toString()));
                     progressDialog.dismiss();
+                    Download_Info DI = new Download_Info(file.getText().toString(), url.getText().toString(), 1, "Pending");
+                    sq.addRow(DI);
                 }
                 else
                 {
