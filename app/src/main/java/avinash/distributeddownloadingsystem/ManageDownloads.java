@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,10 +45,12 @@ public class ManageDownloads extends AppCompatActivity {
         DownloadList = new ArrayList<>();
         sq = new SQLiteHelper(this);
         GetList();
+
         DownloadAdapter = new adapter();
         RV.setLayoutManager(new LinearLayoutManager(this));
         RV.setAdapter(DownloadAdapter);
         context = this;
+
     }
 
     public void GetList() {
@@ -55,6 +58,8 @@ public class ManageDownloads extends AppCompatActivity {
 
         c.moveToFirst();
         Download_Info obj;
+        int k=c.getCount();
+        Log.d("GL",String.valueOf(k));
         while (!c.isAfterLast()) {
             String Fname, URL, key;
             long id;
@@ -85,11 +90,11 @@ public class ManageDownloads extends AppCompatActivity {
 
         private VH(View view) {
             super(view);
-            CV = (CardView) findViewById(R.id.CV);
-            FileName = (TextView) findViewById(R.id.tvFname);
-            URL = (TextView) findViewById(R.id.tvURL);
-            isAdmin = (TextView) findViewById(R.id.tvisAdmin);
-            size = (TextView) findViewById(R.id.tvSize);
+            CV = (CardView) view.findViewById(R.id.CV);
+            FileName = (TextView) view.findViewById(R.id.tvFname);
+            URL = (TextView) view.findViewById(R.id.tvURL);
+            isAdmin = (TextView) view.findViewById(R.id.tvisAdmin);
+            size = (TextView) view.findViewById(R.id.tvSize);
 
         }
 
@@ -107,10 +112,15 @@ public class ManageDownloads extends AppCompatActivity {
         @Override
         public void onBindViewHolder(VH holder, final int position) {
             final Download_Info obj = DownloadList.get(position);
-
+            // Log.d("RV",DownloadList.get(1).getFileName());
+            /*if(DownloadList.size()==1)
+            Log.d("RV","t");
+            else
+                Log.d("RV","f");
+            */
             holder.FileName.setText(obj.getFileName());
             holder.URL.setText(obj.getURL());
-            if (obj.getAdmin() != '0')
+            if (obj.getAdmin() != 0)
                 holder.isAdmin.setText("You are the administrator for this download");
             else
                 holder.isAdmin.setText(" ");
@@ -134,6 +144,9 @@ public class ManageDownloads extends AppCompatActivity {
                     Intent i = new Intent(context, Download_Details.class);
                     i.putExtra("Key", obj.getKey());
                     i.putExtra("Admin",obj.getAdmin());
+                    i.putExtra("FileName",obj.getFileName());
+                    i.putExtra("URL",obj.getURL());
+                    startActivity(i);
 
 
                 }

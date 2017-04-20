@@ -35,7 +35,7 @@ public class Download_Info {
     public Download_Info()
     {}
 
-            public long getId() {
+    public long getId() {
         return id;
 
     }

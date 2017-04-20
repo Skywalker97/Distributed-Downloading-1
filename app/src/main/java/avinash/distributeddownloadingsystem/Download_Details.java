@@ -17,23 +17,31 @@ import avinash.distributeddownloadingsystem.Database.SQLiteHelper;
 
 import static avinash.distributeddownloadingsystem.Database.SQLiteHelper.COLUMN_KEY;
 
-
-
 /**
  * Created by Avinash Sharma on 16-Apr-17.
  */
 
 public class Download_Details extends AppCompatActivity {
-    String key;
+    String key, FileName, URL;
     int admin;
     String [] list;
+    TextView tvFilename, tvURL;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_downloads);
         Bundle extras = getIntent().getExtras();
-         key = extras.getString("Key");
-         admin = extras.getInt("Admin");
+        key = extras.getString("Key");
+        admin = extras.getInt("Admin");
+        FileName = extras.getString("FileName");
+        URL = extras.getString("URL");
+        tvFilename = (TextView) findViewById(R.id.tvFilename);
+        tvURL = (TextView) findViewById(R.id.tvURL);
+        tvFilename.setText(FileName);
+        tvFilename.setText(URL);
+
+
+
 
 
         getList();
@@ -57,6 +65,7 @@ public class Download_Details extends AppCompatActivity {
             String l =c.getString(c.getColumnIndex(COLUMN_KEY));
             list[i] = l;
             ++i;
+            c.moveToNext();
         }
         c.close();
     }

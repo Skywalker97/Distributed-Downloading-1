@@ -25,7 +25,8 @@
         android:layout_marginTop="27dp"
         android:layout_below="@+id/link"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp" />
+        android:layout_marginEnd="10dp"
+        />
 
     <Button
         android:id="@+id/download"
@@ -34,7 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="154dp"
         android:layout_below="@+id/key"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        />
 
     <EditText
         android:id="@+id/file"
@@ -45,5 +47,5 @@
         android:layout_marginTop="62dp"
         android:ems="10"
         android:hint="Enter file name"
-        android:inputType="textPersonName" />
+         />
 </RelativeLayout>

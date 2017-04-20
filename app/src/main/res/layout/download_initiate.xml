@@ -18,10 +18,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
     <EditText
-        android:id="@+id/key"
+        android:id="@+id/tvFilename"
         android:hint="Enter the file name"
         android:layout_width="match_parent"
-        android:inputType="number"
+
         android:layout_height="wrap_content"
         android:layout_marginTop="89dp"
         android:layout_below="@+id/link"
@@ -37,23 +37,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="55dp" />
 
-    <EditText
-        android:id="@+id/file"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/link"
-        android:layout_alignParentStart="true"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+
 
     <EditText
         android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Enter the number of partitions"
+        android:inputType="number"
         android:layout_below="@+id/key"
         android:layout_marginTop="71dp"
         android:layout_alignParentEnd="true"

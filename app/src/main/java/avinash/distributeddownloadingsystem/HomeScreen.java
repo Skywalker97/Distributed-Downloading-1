@@ -11,6 +11,12 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
+        //SQLiteHelper sq = new SQLiteHelper(this);
+        //Download_Info a = new Download_Info( "setup.exe", "www.xyz.org/pqr", 0,"dnandnd2");
+        //sq.addRow(a);
+
+
     }
 
 public void InitiateDownload(View view)
@@ -27,4 +33,5 @@ public void DownloadPartition(View view)
     {
         Intent i = new Intent(this,ManageDownloads.class);
         startActivity(i);
-    }}
+    }
+}

@@ -22,7 +22,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_URL = "URL";
     public static final String COLUMN_KEY = "Key";
     public static final String COLUMN_isADMIN="isAdmin";
-    //private String[] allColumns = { COLUMN_ID, COLUMN_FILENAME, COLUMN_URL, COLUMN_KEY, COLUMN_isADMIN};
+    private String[] allColumns = { COLUMN_ID, COLUMN_FILENAME, COLUMN_URL, COLUMN_KEY, COLUMN_isADMIN};
 
 
     private static final String DATABASE_CREATE = "create table "
@@ -53,7 +53,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     }
     public Cursor GetListCursor()
     {    SQLiteDatabase db=getWritableDatabase();
-         String query = "SELECT * FROM " + TABLE_INFO;
+        String query = "SELECT * FROM " + TABLE_INFO;
         Cursor c = db.rawQuery(query, null);
         //Cursor c = db.query(TABLE_INFO, allColumns, null, null, null, null, null);
 
@@ -68,7 +68,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         values.put(COLUMN_FILENAME,DI.getFileName());
         values.put(COLUMN_URL, DI.getURL());
 
-         values.put(COLUMN_isADMIN,DI.getAdmin());
+        values.put(COLUMN_isADMIN,DI.getAdmin());
         values.put(COLUMN_KEY, DI.getKey());
 
         db.insert(TABLE_INFO, null, values);
@@ -77,7 +77,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public Cursor getKeys(String key)
     {SQLiteDatabase db = getWritableDatabase();
-        String query = "SELECT " + COLUMN_KEY +" FROM " + TABLE_INFO + " WHERE " + COLUMN_KEY + " = " + key;
+        String query = "SELECT " + COLUMN_KEY +" FROM " + TABLE_INFO + " WHERE " + COLUMN_KEY + " = " + "'"+key+"'";
         return db.rawQuery(query,null);
     }
 

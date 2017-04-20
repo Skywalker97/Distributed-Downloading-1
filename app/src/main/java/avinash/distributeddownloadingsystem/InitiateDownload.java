@@ -33,9 +33,9 @@ public class InitiateDownload extends Activity {
         setContentView(R.layout.download_initiate);
         context=this;
         url = (EditText) findViewById(R.id.link);
-        numOfRequests = (EditText) findViewById(R.id.key);
+        numOfRequests = (EditText) findViewById(R.id.editText2);
         download = (Button) findViewById(R.id.download);
-        file = (EditText) findViewById(R.id.file);
+        file = (EditText) findViewById(R.id.tvFilename);
         progressDialog = new ProgressDialog(context);
 
 
@@ -48,10 +48,11 @@ public class InitiateDownload extends Activity {
                     progressDialog.setMessage("Please wait...");
                     progressDialog.show();
                     progressDialog.setCancelable(false);
-                    makeRequest(url.getText().toString(),Integer.parseInt(numOfRequests.getText().toString()));
-                    progressDialog.dismiss();
                     Download_Info DI = new Download_Info(file.getText().toString(), url.getText().toString(), 1, "Pending");
                     sq.addRow(DI);
+                    makeRequest(url.getText().toString(),Integer.parseInt(numOfRequests.getText().toString()));
+                    progressDialog.dismiss();
+
                 }
                 else
                 {
